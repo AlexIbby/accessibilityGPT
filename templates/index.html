@@ -1,7 +1,58 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>AccessibilityGPT</title>
+</head>
+<body>
+    <div class="nav-wrapper">
+    <nav>
+        <p class="logo"><a href="https://github.com/AlexIbby/accessibilityGPT" target="_blank">AccessibilityGPT</a></p>
+        <ul>
+            <li><a href="">Alex's Github</a></li>
+            <li><a href="">How this Works</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+    </nav>
+    </div>
 
+    <div class="interface"> <!--Interface Start -->
+  
+    <div class="chat-container">
+        <div class="chat-box">
 
-{% block content %}
+            <div class="chat-history">
+                <div class="ai-message">
+                    <p>Hello, I'm an assistant that has been trained to provide answers on the Accessibility for Ontarians with Disabilities Act and it's standards. <br><br> Ask away, but keep in mind large language models can give wrong answers 😄 Rely on official information from  <a href="http://www.Ontario.ca/accessibility">Ontario.ca</a></p>
+                </div>
+                
+                
+                
+               
 
-{% endblock %}
+            </div>
 
+            <div class="chat-input-container">
+                <input id="user-input" type="text">
+                <button id="send-btn">Send</button>
+            </div> 
+        </div>
+    </div>
+
+    <div class="resource-container">
+        <div class="chat-box">
+        </div>
+        
+        
+
+    </div>
+
+    </div> <!--Interface End -->
+  
+
+<script src="/static/index.js"></script>
+</body>
+</html>
