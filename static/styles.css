@@ -7,6 +7,8 @@
 
 /*Roboto Font Import*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 *{
     margin: 0;
     padding:0; 
@@ -120,10 +122,6 @@ nav  ul  li  a{
     height: 70vh; 
 }
 
-.resource-container{
-    width: 40%;
-    height: 70vh; 
-}
 
 .chat-box{
     background-color: white; 
@@ -198,6 +196,13 @@ nav  ul  li  a{
     margin-top: 15px;
     border-radius: 4px;
     font-family: 'Roboto', sans-serif;
+    transform: translateY(100%);
+    animation-name: slideUpUser;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    text-indent: 40px;
+    line-height: 1.5rem;
 }
 
 .user-message{
@@ -218,6 +223,7 @@ nav  ul  li  a{
     animation-duration: 0.5s;
     animation-timing-function: ease;
     animation-fill-mode: forwards;
+    line-height: 1.5rem;
 }
 
 @keyframes slideUpUser {
@@ -297,3 +303,189 @@ nav  ul  li  a{
     animation-delay: 0.4s;
   }
   
+/*Cited Resources */
+
+.resource-container{
+  width: 40%;
+  height: 70vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+
+th h2{
+  background-color: #000080;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 7px;
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: #F4F4F4;
+}
+
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+#table-header{
+  background-color: whitesmoke;
+  color:black;
+  text-align: center; 
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 200;
+}
+
+#resource-placeholder{
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  padding: 1rem;
+  max-width: 40ch;
+}
+
+#resource-placeholder p{
+  text-align: left;
+  text-indent: 2em;
+  line-height: 1.5rem;
+}
+
+#resource-placeholder p + p{
+  margin-top: 1rem; 
+}
+
+/*Carousel*/
+
+#reading-heading{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  background-color: #000080;
+  color:white; 
+  padding: 10px 7px;
+  text-align: center;
+  width: 100%;
+  
+}
+
+.carousel {
+  display:flex;
+  flex-direction: column;
+  overflow: hidden;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  
+}
+
+.foundResources{
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  background-color: #000080;
+  color:white; 
+  padding: 10px 7px;
+  text-align: center;
+  width: 100%;
+  margin-top: 1rem;
+
+}
+
+.carousel__nav{
+  display: flex;
+  gap: 1rem; 
+}
+
+.cards{
+  display: flex;
+  overflow-x:hidden;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%; 
+}
+
+#place-holder-card p{
+  font-size: 1.2rem;
+}
+
+.cards-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  max-height: 450px;
+  position: relative;
+  scroll-snap-align: start;
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform .5s;
+  width: 100%;
+  background: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 1rem;
+}
+
+.cards-item img{
+  object-fit: cover;
+  height: 40%;
+
+}
+
+.cards-item h3{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  margin-top: .5rem;
+}
+
+.cards-item p{
+  text-align: left;
+  margin-top: 1rem;
+  height: 30%;
+}
+
+.cards-item a{
+  font-family: 'Roboto', sans-serif;
+  background-color: #000080;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 1.2rem;
+  width: 70%;
+  padding: 5px 10px;
+}
+
+.slider-nav {
+  display: inline-flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: #000080;
+  border-radius: 50%;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: white; 
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 1.3rem;
+  justify-content: center;
+  padding: .5rem;
+  position: relative;
+  text-decoration: none;
+}

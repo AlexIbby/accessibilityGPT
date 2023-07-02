@@ -2,6 +2,11 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
+
+##Not needed for users
+documents/
+ingestion/
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
