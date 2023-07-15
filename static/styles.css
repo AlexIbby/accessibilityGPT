@@ -22,7 +22,7 @@ body{
     display: flex;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 
@@ -54,6 +54,7 @@ nav ul li {
     transition: 0.3s linear;
     border-top: 1px solid white;
     padding-top: 2px;
+    width: 100%;
 }
 
 nav  ul  li:hover{
@@ -64,13 +65,16 @@ nav  ul  li:hover{
 nav  ul  li  a{
     list-style: none;
     text-decoration: none;
-    color: black;
+    color: #313131;
     padding-right: 5px;
 }
 
 .nav-wrapper{
     min-width: 100%;
     background: white;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem; 
 }
 
 .logo{
@@ -90,7 +94,7 @@ nav  ul  li  a{
 
 .logo a {
     text-decoration: none;
-    color:black; 
+    color: #313131; 
     transition: .7s;
     
 }
@@ -99,6 +103,93 @@ nav  ul  li  a{
     text-decoration: none;
     color:white; 
     
+}
+
+/*********************************************
+*                Nav - Hamburger Menu        *
+**********************************************/
+
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.hamburger-menu div {
+  width: 2rem;
+  height: 0.25rem;
+  background: black;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.hamburger-menu div:first-child {
+  transform: rotate(0);
+}
+
+.hamburger-menu.toggle div:first-child {
+  transform: rotate(45deg);
+}
+
+.hamburger-menu div:nth-child(2) {
+  opacity: 1;
+}
+
+.hamburger-menu.toggle div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu div:last-child {
+  transform: rotate(0);
+}
+
+.hamburger-menu.toggle div:last-child {
+  transform: rotate(-45deg);
+}
+
+/*Animate Hamburger Menu*/
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.nav-menu.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideInFromRight 0.5s forwards;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.nav-menu.show li {
+  opacity: 0;
+}
+
+.nav-menu.show li.animate {
+  animation: slideInFromRight 0.5s forwards;
+}
+
+.logo-menu-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav-menu{
+  width: 30%;
 }
 
 
@@ -138,6 +229,7 @@ nav  ul  li  a{
     border-radius: 4px;
     overflow-y: scroll;
     padding-bottom: 2rem;
+    padding: 10px;
 }
 
 .chat-input-container{
@@ -151,7 +243,7 @@ nav  ul  li  a{
 }
 
 #user-input{
-    height: 25px;
+  min-height: 25px;
     border: none;
     outline: none;
     width: 85%;
@@ -186,36 +278,68 @@ nav  ul  li  a{
   }
 
 .ai-message{
-    background-color: #F4F4F4;
-    padding: 10px;
-    width:max-content; 
-    max-width: 70%;
-    height: auto;
-    margin-left: 15px;
-    margin-right: auto;
-    margin-top: 15px;
-    border-radius: 4px;
-    font-family: 'Roboto', sans-serif;
-    transform: translateY(100%);
-    animation-name: slideUpUser;
-    animation-duration: 0.5s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-    text-indent: 40px;
-    line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem; 
+  background-color: #F4F4F4;
+  padding: 10px;
+  width:fit-content; 
+  max-width: 70ch;
+  height: auto;
+  margin-left: 15px;
+  margin-right: auto;
+  margin-top: 15px;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  transform: translateY(100%);
+  animation-name: slideUpUser;
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+
 }
+
+.ai-message p{
+  max-width: 60ch;
+  color: #313131;
+  text-indent: 40px;
+  line-height: 1.5rem;
+  /*slide up animation*/
+  transform: translateY(100%);
+  animation-name: slideUpUser;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+
+.ai-message ul{
+  display: block;
+  list-style-type: circle; 
+  margin-left: 15px;
+  margin-right: auto;
+  padding: 10px;
+}
+
+.ai-message li{
+  margin-bottom: 0.5rem;
+  width: 60ch;
+  line-height: 1.5rem;
+}
+
 
 .user-message{
     background-color: #3194f1;
     padding: 10px;
-    width:max-content;
-    max-width: 70%;
+    width:fit-content; 
+    max-width: 70ch;
     height: auto;
     margin-left: auto;
     margin-right: 15px;
     margin-top: 10px;
     border-radius: 4px;
     font-family: 'Roboto', sans-serif;
+    line-height: 1.5rem;
     color:white;
     /*slide up animation*/
     transform: translateY(100%);
@@ -223,8 +347,39 @@ nav  ul  li  a{
     animation-duration: 0.5s;
     animation-timing-function: ease;
     animation-fill-mode: forwards;
-    line-height: 1.5rem;
 }
+
+
+.user-message p{
+  max-width: 70ch;
+  color: white; 
+  line-height: 1.5rem;
+  /*slide up animation*/
+  transform: translateY(100%);
+  animation-name: slideUpUser;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+.ai-message,
+.user-message {
+  max-width: 90%;
+  /* ... */
+}
+
+.ai-message p,
+.user-message p {
+  max-width: 60ch;
+  /* ... */
+}
+
+.ai-message ul,
+.ai-message li {
+  max-width: 60ch;
+  /* ... */
+}
+
 
 @keyframes slideUpUser {
     from {
@@ -237,10 +392,21 @@ nav  ul  li  a{
     }
   }
 
-
-
 .user-message a {
     color:white;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+  border-color: white;
+  opacity: 0;
 }
 
 
@@ -265,6 +431,19 @@ nav  ul  li  a{
     margin: 0 4px; /* Adjust this to change the spacing between bubbles */
     animation: chatbot-pulse 1.5s ease-in-out infinite;
   }
+
+.ai-message,
+.user-message,
+.ai-message p,
+.user-message p{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#user-input{
+  /* ...existing styles... */
+  resize: vertical;
+}
   
   /* This is the animation that makes the bubbles pulse */
   @keyframes chatbot-pulse {
@@ -345,7 +524,7 @@ tr:nth-child(odd) {
 
 #table-header{
   background-color: whitesmoke;
-  color:black;
+  color: #313131;
   text-align: center; 
   font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
@@ -390,6 +569,7 @@ tr:nth-child(odd) {
   justify-content: center;
   align-items: center;
   max-width: 350px;
+  margin-bottom: 20px;
   
 }
 
@@ -488,4 +668,116 @@ tr:nth-child(odd) {
   padding: .5rem;
   position: relative;
   text-decoration: none;
+}
+
+/**MEDIA REQUESTS**/
+
+@media (max-width: 450px) {
+  /* Changes for mobile screens go here */
+  
+  /* Example changes for navbar */
+  nav {
+      flex-direction: column; /* Stack elements vertically on small screens */
+      align-items: flex-start; /* Align items to the start */
+  }
+
+  ul {
+      flex-direction: column; /* Stack list items vertically on small screens */
+      align-items: flex-start; /* Align items to the start */
+  }
+
+  /* Adjust chat-container and resource-container to take full width on small screens */
+  .chat-container, .resource-container {
+      width: 100%;
+      min-height: 85vh;
+  }
+
+  .ai-message{
+    max-width: 90%;
+  }
+
+  .ai-message p{
+    max-width: 100%;
+  }
+
+  .user-message{
+    width: 100%
+  }
+
+  .ai-message ul, li{
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+
+  /* Changes for interface */
+  .interface {
+      flex-direction: column;
+      padding: 10px; /* Adjust padding as per requirement */
+  }
+  
+
+  /* Chat Input Container*/
+  .chat-input-container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+
+  .button{
+    align-self: left;
+    text-align: left;
+  }
+
+ .ai-message,
+ .user-message,
+ .ai-message p,
+ .user-message p{
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+ #user-input{
+  /* ...existing styles... */
+  resize: vertical;
+}
+
+/**Hamburger Menu**/
+
+.hamburger-menu {
+  display: flex;
+}
+
+.nav-menu {
+  display: none;
+}
+
+.nav-menu.show {
+  display: flex;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+nav p, div {
+  margin: auto;
+}
+
+nav div {
+  margin-top: .5rem;
+}
+
+nav .logo-menu-wrapper div {
+  margin-top: 0;
+}
+
+
+
+/**CAROUSEL**/
+.cards-item img{
+  min-height: 100px;
+  object-fit: scale-down;
+}
+
 }

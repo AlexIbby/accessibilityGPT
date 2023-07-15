@@ -12,9 +12,12 @@ function sendUserQuery (){
     let newElement = document.createElement("div")
     newElement.classList.add("user-message")
 
+    let userParagraph = document.createElement("p")
+    newElement.appendChild(userParagraph)
+
     /*Add input only if input is not blank*/
     if (userInputEl.value != ""){
-        newElement.textContent = userInputEl.value
+        userParagraph.textContent = userInputEl.value
         let userMessage = userInputEl.value
 
         let chatBubbles = document.createElement("div")
@@ -55,8 +58,12 @@ function sendUserQuery (){
         //Append new message text content and add to chat History
         newAIResponse.innerHTML = aiResponse
         chatHistoryEl.appendChild(newAIResponse)
+
+        //Success Resource Message
+
+        let resourceMsg = document.createElement("p")
         
-    
+        
         //Sources table
         let resourceTableEl = document.getElementById("resource-table")
 
@@ -99,16 +106,36 @@ function sendUserQuery (){
 
             resourcePlaceholder.textContent = "Sorry no resources were found!"
 
-
         }
     
 
         if (totalResources > 0 && resources){
 
+            //Success Resource Message
+            
+            let resourceMsg = document.createElement("p")
+
+            if (window.innerWidth > 450) {
+                resourceMsg.innerText = "Good news! I found some related resources to your question, see them to the right";
+            }else{
+                resourceMsg.innerText = "Good news! I found some related resources to your question, scroll down to see them";
+            }
+            let aiResourceResponse = document.createElement("div")
+            aiResourceResponse.classList.add("ai-message")
+            
+            aiResourceResponse.appendChild(resourceMsg)
+            chatHistoryEl.appendChild(aiResourceResponse)
+
         resources.forEach(item => {
 
-            resourcePlaceholder.remove()
+            
 
+
+            //Remove Place Holder Resource Message
+
+            resourcePlaceholder.remove()
+            
+            //Begin Adding Cards
 
             const cardsEl = document.querySelector('.cards');
 
@@ -153,6 +180,8 @@ function sendUserQuery (){
                 // Add the new element to carousel
                 cardsEl.appendChild(resource);
                 resourceCount += 1
+
+
 
         })}
 
@@ -228,4 +257,37 @@ inputField.addEventListener("keypress", function(event) {
     // Trigger the button element with a click
     sendBtnEl.click()
   }
+});
+
+
+// Resize Text Area for User Input
+document.getElementById('user-input').addEventListener('input', autoResize, false);
+
+function autoResize() {
+    this.style.height = 'auto';
+    this.style.height = this.scrollHeight + 'px';
+    }
+
+// Hamburger Menu
+
+// Hamburger Menu
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const navMenu = document.querySelector('.nav-menu');
+const navItems = document.querySelectorAll('.nav-menu li');
+
+hamburgerMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    hamburgerMenu.classList.toggle('toggle');
+
+    if (navMenu.classList.contains('show')) {
+        navItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('animate');
+            }, 75 * (index + 1)); // Adjust timing as needed
+        });
+    } else {
+        navItems.forEach((item) => {
+            item.classList.remove('animate');
+        });
+    }
 });

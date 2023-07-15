@@ -33,7 +33,7 @@ def getContext(user_input):
     query_embeds = embed_query['data'][0]['embedding']
 
     # get relevent contexts, inluding question
-    response = index.query(query_embeds, top_k=4, include_metadata=True, namespace="accessgpt2023-06-21")
+    response = index.query(query_embeds, top_k=3, include_metadata=True, namespace="accessgpt2023-06-21")
     reponse = response.to_dict()
     contexts = []
     matches = response.get('matches', [])

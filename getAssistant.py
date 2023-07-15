@@ -12,12 +12,12 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def getAssistantResponse(session_messages):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-16k",
+        model="gpt-4",
         messages= session_messages
     )
 
     response = response['choices'][0]['message']['content']
-    response = add_breaks(response)
+    
 
     return response
 
