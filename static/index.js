@@ -116,9 +116,9 @@ function sendUserQuery (){
             let resourceMsg = document.createElement("p")
 
             if (window.innerWidth > 450) {
-                resourceMsg.innerText = "Good news! I found some related resources to your question, see them to the right";
+                resourceMsg.innerHTML = "Good news! I found some related resources to your question, <a href='#reading-heading' aria-label='See related resources to the right'> see them to the right</a>";
             }else{
-                resourceMsg.innerText = "Good news! I found some related resources to your question, scroll down to see them";
+                resourceMsg.innerHTML = "Good news! I found some related resources to your question, <a href='#reading-heading' aria-label='Scroll down to see related resources'> scroll down to see them";
             }
             let aiResourceResponse = document.createElement("div")
             aiResourceResponse.classList.add("ai-message")

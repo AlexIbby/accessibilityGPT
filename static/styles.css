@@ -8,6 +8,8 @@
 /*Roboto Font Import*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
+
 
 *{
     margin: 0;
@@ -35,11 +37,10 @@ nav{
     justify-content: space-between; 
     align-items: center;
     width: 80%;
-    padding: 1rem;
     background: white;
     margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding-bottom: 5px;
+    padding-top: 10px;
 }
 
 ul{
@@ -53,7 +54,7 @@ ul{
 nav ul li {
     transition: 0.3s linear;
     border-top: 1px solid white;
-    padding-top: 2px;
+    padding-top: 10px;
     width: 100%;
 }
 
@@ -171,6 +172,9 @@ nav  ul  li  a{
   animation: slideInFromRight 0.5s forwards;
   margin: auto;
   margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .nav-menu.show li {
@@ -482,7 +486,9 @@ nav  ul  li  a{
     animation-delay: 0.4s;
   }
   
-/*Cited Resources */
+/*********************************************
+*                Resource Container          *
+**********************************************/
 
 .resource-container{
   width: 40%;
@@ -491,11 +497,12 @@ nav  ul  li  a{
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  font-family: 'Lato', sans-serif;
 }
 
 
 table {
-  font-family: arial, sans-serif;
+  font-family: 'Lato', sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -551,7 +558,7 @@ tr:nth-child(odd) {
 /*Carousel*/
 
 #reading-heading{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.2rem;
   background-color: #000080;
   color:white; 
@@ -575,7 +582,7 @@ tr:nth-child(odd) {
 
 .foundResources{
 
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.2rem;
   background-color: #000080;
   color:white; 
@@ -628,7 +635,7 @@ tr:nth-child(odd) {
 }
 
 .cards-item h3{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1rem;
   text-align: center;
   margin-top: .5rem;
@@ -641,7 +648,7 @@ tr:nth-child(odd) {
 }
 
 .cards-item a{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   background-color: #000080;
   color: white;
   text-decoration: none;
@@ -672,7 +679,7 @@ tr:nth-child(odd) {
 
 /**MEDIA REQUESTS**/
 
-@media (max-width: 450px) {
+@media (max-width: 850px) {
   /* Changes for mobile screens go here */
   
   /* Example changes for navbar */
@@ -689,7 +696,7 @@ tr:nth-child(odd) {
   /* Adjust chat-container and resource-container to take full width on small screens */
   .chat-container, .resource-container {
       width: 100%;
-      min-height: 85vh;
+      min-height: 75vh;
   }
 
   .ai-message{
