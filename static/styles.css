@@ -196,6 +196,9 @@ nav  ul  li  a{
   width: 30%;
 }
 
+#opener{
+  text-indent: 0;
+}
 
 /*********************************************
 *                Chat Bot                    *
@@ -317,18 +320,21 @@ nav  ul  li  a{
 }
 
 
-.ai-message ul{
+.ai-message ul, ol{
   display: block;
   list-style-type: circle; 
   margin-left: 15px;
   margin-right: auto;
   padding: 10px;
+  width: 50ch;
 }
+
+
 
 .ai-message li{
   margin-bottom: 0.5rem;
-  width: 60ch;
   line-height: 1.5rem;
+  color: #313131;
 }
 
 
@@ -382,6 +388,10 @@ nav  ul  li  a{
 .ai-message li {
   max-width: 60ch;
   /* ... */
+}
+
+.ai-message ul, ol {
+  margin-left: 1.5rem;
 }
 
 
@@ -693,6 +703,11 @@ tr:nth-child(odd) {
       align-items: flex-start; /* Align items to the start */
   }
 
+  ol {
+    flex-direction: column; /* Stack list items vertically on small screens */
+    align-items: flex-start; /* Align items to the start */
+ }
+
   /* Adjust chat-container and resource-container to take full width on small screens */
   .chat-container, .resource-container {
       width: 100%;
@@ -711,7 +726,21 @@ tr:nth-child(odd) {
     width: 100%
   }
 
+  .ai-message ul {
+    max-width: 50ch;
+  }
+
+  .ai-message ol {
+    max-width: 50ch;
+  }
+
+
   .ai-message ul, li{
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .ai-message ol, li{
     max-width: 100%;
     margin-bottom: 10px;
   }

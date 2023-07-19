@@ -45,16 +45,11 @@ def getContext(user_input):
 
 
     #joining context together in an orderly fashion
-    ordered_context = ""
+    ordered_context = "Provide your answers inside html <p> elements. Use only the context given by the user. If you cannot, simply say 'Sorry, I can't provide an answer based on the context provided to me. If you provide a link in your answer - use an html anchor element <a></a>. If you provide a list in your answer please provide it inside a <ul> element with the respective <li> elements nested inside."
     for i, context in enumerate(contexts,1):
         ordered_context += f"Context {i}: " + context + str(metadata) + "\n\n"
 
-
     sources = get_sources(ordered_context)
-
-    for source in sources:
-        print(source)
-    
 
     return [ordered_context, sources]
 
