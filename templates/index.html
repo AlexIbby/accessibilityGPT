@@ -10,23 +10,47 @@
 <body>
     <div class="nav-wrapper">
         <nav>
-          <div class="logo-menu-wrapper">
-            <p class="logo"><a href="https://github.com/AlexIbby/accessibilityGPT" target="_blank">AccessibilityGPT</a></p>
-            <div class="hamburger-menu">
-                <div></div>
-                <div></div>
-                <div></div>    
+            <div class="logo-menu-wrapper">
+                <!-- Add alt text for logo to describe the purpose of the link-->
+                <p class="logo">
+                    <a href="https://github.com/AlexIbby/accessibilityGPT" target="_blank" aria-label="Link to AccessibilityGPT project on Github">
+                        AccessibilityGPT
+                    </a>
+                </p>
+                <!-- Add button semantics, aria-label, and aria-expanded to hamburger menu-->
+                <button class="hamburger-menu" aria-label="Menu" aria-expanded="false">
+                    <div></div>
+                    <div></div>
+                    <div></div>    
+                </button>
             </div>
-          </div>
-          <ul class="nav-menu">
-              <li><a href="https://github.com/AlexIbby/accessibilityGPT" target=”_blank”>Github</a></li>
-              <li><a href="https://www.linkedin.com/in/ibrahimalex/" target=”_blank”>LinkedIn</a></li>
-              <li><a href="">How this Works</a></li>
-              <li><a href="">About</a></li>
-             
-          </ul>
+            <!-- Add role and aria-label for main navigation-->
+            <ul class="nav-menu" role="navigation" aria-label="Main"> 
+                <!-- Add descriptive aria-label to each link-->
+                <li>
+                    <a href="https://github.com/AlexIbby/accessibilityGPT" aria-label="Link to the Github page of this AccessibilityGPT project, which includes all the code for the project.">
+                        Github
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/ibrahimalex/" aria-label="Link to the LinkedIn profile of Alex Ibrahim">
+                        LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a href="how-this-works.html" aria-label="Link to page explaining how this AODA chatbot works">
+                        How this Works
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" aria-label="Link to the about page of this project">
+                        About
+                    </a>
+                </li>
+            </ul>
         </nav>
-      </div>
+    </div>
+    
       
     <div class="interface"> <!--Interface Start -->
   
@@ -39,7 +63,7 @@
                     </p>
 
                     <p id="opener"><strong>Sample Questions</strong></p>
-                    <ul>
+                    <ul id ="ul-opener">
                         <li>
                             What is the AODA?
                         </li>

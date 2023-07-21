@@ -12,7 +12,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def getAssistantResponse(session_messages):
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
+        model="gpt-3.5-turbo-16k",
         messages= session_messages
     )
 
@@ -24,7 +24,7 @@ def getAssistantResponse(session_messages):
 
 def html_response(text):
 
-    system_prompt = "Your role is take this response and convert it to HTML. Put the text inside of paragraph p tags, each paragraph should have a maximum of two setences. If there something in the text that can be a list, put the list inside a <ul> element with the list items in respective <li> elements as needed, no paragraphs needed for li item text. If there are references to context or sources in the text, you may edit the content remove them as the user already knows about the sources and context. Put links inside of properly formatted anchor tags <a> and integrate them into the text. Do not edit the content of the text otherwise."
+    system_prompt = "Your role is take this response and convert it to HTML and remove references to source documents. Put the text inside of paragraph p tags, each paragraph should have a maximum of two setences. If there something in the text that can be a list, put the list inside a <ul> element with the list items in respective <li> elements as needed, no paragraphs needed for li item text. If there are references to context or source documents in the text, you may edit the content remove them as the user already provided the sources and context. If there are web links, put them inside of properly formatted anchor tags <a> and integrate them into the text. Do not edit the content of the text otherwise."
 
     html_api_response = openai.ChatCompletion.create(
     model="gpt-3.5-turbo",

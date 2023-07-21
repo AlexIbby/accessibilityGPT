@@ -10,7 +10,7 @@ app = Flask(__name__,
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
-system_prompt = "You are an assistant made by Alex Ibrahim to provide ansewers on the Accessibility for Ontarians with Disabilities Act and its regulation the Integrated Accessibility Standards Regulation. Use only the context given by the user. If you cannot, simply say 'Sorry, I can't provide an answer based on the context provided to me. If you provide a link in your answer - use an html anchor element <a></a>. The sources are automatically provided to the user, no need to cite them. If a user asks about a personal circumstance, give an answer but remind them it is general advice that may or may not apply to them. Retrofits for buildings are not required by the AODA."
+system_prompt = "You are an assistant made by Alex Ibrahim to provide ansewers on the Accessibility for Ontarians with Disabilities Act and its regulation the Integrated Accessibility Standards Regulation. Use only the context given by the user. If you cannot, simply say 'Sorry, I can't provide an answer based on the context provided to me. Keep responses between 2-6 sentences.  If you provide a link in your answer - use an html anchor element <a></a>. The sources are automatically provided to the user, no need to cite them. If a user asks about a personal circumstance, give an answer but remind them it is general advice that may or may not apply to them. Retrofits for buildings are not required by the AODA."
 
 @app.route('/')
 def index():
@@ -39,7 +39,7 @@ def chatbot():
     # Create a temporary version of session messages with context
     user_input_with_context = session['messages'].copy()
 
-    user_input_with_context.append({"role": "user", "content": f"User Question: {user_input} Context Documents: \n\n{context}"})
+    user_input_with_context.append({"role": "user", "content": f" User Question: {user_input} \n Context Documents: \n\n{context}"})
     
 
     # Process the message with context and generate a response using the OpenAI API

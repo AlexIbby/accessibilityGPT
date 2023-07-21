@@ -15,6 +15,7 @@
     margin: 0;
     padding:0; 
     box-sizing: border-box;
+    width: 100%;
 }
 
 body{
@@ -78,6 +79,10 @@ nav  ul  li  a{
     gap: 1rem; 
 }
 
+.logo-menu-wrapper{
+  width: 100%;
+}
+
 .logo{
     font-family: 'DM Sans', sans-serif;
     font-weight: 700;
@@ -87,6 +92,7 @@ nav  ul  li  a{
     border-radius: 6px;
     transition: .7s;
     cursor: pointer;
+    width:auto; 
 }
 
 .logo:hover{
@@ -109,6 +115,20 @@ nav  ul  li  a{
 /*********************************************
 *                Nav - Hamburger Menu        *
 **********************************************/
+
+nav button{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+}
 
 .hamburger-menu {
   display: none;
@@ -196,13 +216,12 @@ nav  ul  li  a{
   width: 30%;
 }
 
-#opener{
-  text-indent: 0;
-}
 
 /*********************************************
 *                Chat Bot                    *
 **********************************************/
+
+
 
 .interface{
     width: 100%;
@@ -237,6 +256,15 @@ nav  ul  li  a{
     overflow-y: scroll;
     padding-bottom: 2rem;
     padding: 10px;
+}
+
+#opener{
+  text-indent: 0;
+  margin-bottom: 0;
+}
+
+#ul-opener{
+  margin-top: 0;
 }
 
 .chat-input-container{
@@ -434,6 +462,7 @@ nav  ul  li  a{
     padding: 10px;
     margin-left: 10px;
     border-radius: 15px;
+    padding-bottom: 10px;
   }
   
   /* This is the style for each bubble */
@@ -689,10 +718,14 @@ tr:nth-child(odd) {
 
 /**MEDIA REQUESTS**/
 
+/*********************************************
+*                MEDIA REQUESTS         *
+**********************************************/
+
 @media (max-width: 850px) {
   /* Changes for mobile screens go here */
   
-  /* Example changes for navbar */
+  /*NAV BAR*/
   nav {
       flex-direction: column; /* Stack elements vertically on small screens */
       align-items: flex-start; /* Align items to the start */
@@ -714,8 +747,16 @@ tr:nth-child(odd) {
       min-height: 75vh;
   }
 
+  .chat-history{
+    padding: 0px;
+  }
+
   .ai-message{
     max-width: 90%;
+    margin-left: 0;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .ai-message p{
@@ -723,7 +764,11 @@ tr:nth-child(odd) {
   }
 
   .user-message{
-    width: 100%
+    width: fit-content; 
+  }
+
+  .user-message p {
+    width: fit-content;
   }
 
   .ai-message ul {
@@ -736,7 +781,7 @@ tr:nth-child(odd) {
 
 
   .ai-message ul, li{
-    max-width: 100%;
+    max-width: 90%;
     margin-bottom: 10px;
   }
 
@@ -749,7 +794,7 @@ tr:nth-child(odd) {
   /* Changes for interface */
   .interface {
       flex-direction: column;
-      padding: 10px; /* Adjust padding as per requirement */
+      padding: 5px; /* Adjust padding as per requirement */
   }
   
 
@@ -759,7 +804,6 @@ tr:nth-child(odd) {
     flex-direction: row;
     align-items: flex-end;
   }
-
 
   .button{
     align-self: left;
@@ -772,7 +816,6 @@ tr:nth-child(odd) {
  .user-message p{
     word-wrap: break-word;
     overflow-wrap: break-word;
-    margin-bottom: 10px;
 }
 
  #user-input{
@@ -814,6 +857,10 @@ nav .logo-menu-wrapper div {
 .cards-item img{
   min-height: 100px;
   object-fit: scale-down;
+}
+
+.carousel__nav{
+  justify-content: center;
 }
 
 }
