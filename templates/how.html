@@ -58,13 +58,13 @@
         </p>
 
         <p>
-            However, due to their probabilistic nature, these models can sometimes generate outputs that are factually incorrect or inconsistent with the input provided. This phenomenon is often referred to as <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)">'hallucination'</a>. Hallucination occurs when the model makes statements that seem plausible, based on its training, but are not grounded in the facts given or in reality. This typically happens because the model lacks a deep understanding of the world, and instead relies on patterns in the data it has seen, which can sometimes lead to generation of content that is incorrect or nonsensical. Large language models, unlike continuously updating search engines, are like historical snapshots of the data they were trained on. Their understanding of the world, language, and information is confined to the period before their 'knowledge cutoff,' and they do not possess the capability to learn or incorporate new information post-training. In this way, they are 'frozen in time.'"
+            However, due to their probabilistic nature, these models can sometimes generate outputs that are factually incorrect or inconsistent with the input provided. This phenomenon is often referred to as <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)">'hallucination'</a>. Hallucination occurs when the model makes statements that seem plausible, based on its training, but are not grounded in the facts given or in reality. "
         </p>
 
         <h1>Retrieval Augmented Generation</h1>
 
         <p>
-            In order to overcome this shortcomings we need a solution. Expensive and complex solutions like pre-training elements exist, but a new simple approach with relatively low overhead is Retrieval Augmented Generation. Where instead of using LLMs to access thier internal knowledge, you use the LLM as a natural language interface an existing knowledge base of information. Put simply, the user question is matched against a smaller set of documents likely to contain the answer. The LLM is then asked to provide an answer using <strong>only</strong> on the matching documents. The approach reduces the likelyhood of false answers. See the bulleted list below outlining the process and a diagram containing the same information. 
+            In order to overcome these shortcomings there a few solutions. Expensive and complex solutions like pre-training elements exist, but a new simple approach with relatively low overhead is Retrieval Augmented Generation (RAG). Instead of using LLMs to access thier internal knowledge, you use the LLM as a natural language interface an existing knowledge base of information. Put simply, the user question is matched against a smaller set of documents likely to contain the answer. The LLM is then asked to provide an answer using <strong>only</strong> on the matching documents. The approach reduces the likelyhood of false answers. See the bulleted list below and a diagram. 
         </p>
 
   

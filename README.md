@@ -1,12 +1,12 @@
 # AccessibilityGPT - An AODA Chatbot providing Information on Accessibility for Ontarians with Disabilities Act (AODA) 📖
 
-This project is a chatbot designed to provide answers related to the Accessibility for Ontarians with Disabilities Act (AODA) and its regulation, the Integrated Accessibility Standards Regulation (IASR). The chatbot utilizes the powerful mechanism of retrieval augmented generation (RAG) to provide more reliable and accurate responses. 🎯💬
+This project is a chatbot designed to provide answers related to the Accessibility for Ontarians with Disabilities Act (AODA) and its regulation, the Integrated Accessibility Standards Regulation (IASR). The chatbot utilizes retrieval augmented generation (RAG) to provide more reliable and accurate responses. 🎯💬
 
 ## How it works ❓
 
-The process begins with a user's query. 🗣️ This query is then matched against a set of relevant documents within a Pinecone vector database. Pinecone is a state-of-the-art vector database that allows us to retrieve relevant documents based on the similarity of vectors. 📚
+The process begins with a user's query. 🗣️ This query is then matched against a set of relevant documents within a Pinecone vector database. Pinecone is a  popular vector database that allows us to retrieve relevant documents based on the similarity of vectors. 📚
 
-Following this, an OpenAI's API call is made to GPT-3.5, which serves as the language learning model (LLM) for the system. This LLM generates an answer to the user's query based solely on the matched documents from the database. 🤖💡
+Following this, an OpenAI API call is made to GPT-3.5, which serves as the language learning model (LLM) for the system. This LLM generates an answer to the user's query based solely on the matched documents from the database. 🤖💡
 
 This approach significantly increases the "truthiness" of responses by restricting the responses to only the information found within the matched documents, effectively reducing hallucination. 🎉
 
