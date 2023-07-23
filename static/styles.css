@@ -677,7 +677,7 @@ tr:nth-child(odd) {
 }
 
 .cards-item img{
-  object-fit: cover;
+  object-fit: scale-down;
   height: 40%;
 
 }
