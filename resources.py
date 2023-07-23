@@ -461,7 +461,11 @@ resources = [
 
 #Function for Matching Resources:
 
-def matching_resources(question):
+def matchingResources(question):
+    """
+    The matchingResources function takes the user query and provides resources based on the dictionary above. Given the small number of credible resources, it is using a simple keyword search against the above dictionary instead of a database. In a more comprehsnive domain or topic with many credible releated resources, a database would be a better approach along with a more advanced search approach. 
+    
+    """
     matching_resources = []
     for resource in resources:
         if any(keyword in question.lower() for keyword in resource['keywords']):

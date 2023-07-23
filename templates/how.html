@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>AccessibilityGPT</title>
+</head>
+<body>
+    <div class="nav-wrapper">
+        <nav>
+            <div class="logo-menu-wrapper">
+                <button class="logo">
+                    <a href="index.html" aria-label="Return to homepage of AODA chatbot">
+                        AccessibilityGPT
+                    </a>
+                </botton>
+                <button class="hamburger-menu" aria-label="Menu" aria-expanded="false">
+                    <div></div>
+                    <div></div>
+                    <div></div>    
+                </button>
+            </div>
+            <ul class="nav-menu" role="navigation" aria-label="Main"> 
+                <li>
+                    <a href="https://github.com/AlexIbby/accessibilityGPT" aria-label="Link to the Github page of this AccessibilityGPT project, which includes all the code for the project.">
+                        Github
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/ibrahimalex/" aria-label="Link to the LinkedIn profile of Alex Ibrahim">
+                        LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a href="how-this-works.html" aria-label="Link to page explaining how this AODA chatbot works">
+                        How this Works
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" aria-label="Link to the about page of this project">
+                        About
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+
+
+    <section id="section-container">
+
+        <h1>Understanding Generative AI</h1>
+
+        <p>
+            Generative large language models (LLMs) like GPT-4 work by learning statistical patterns in the vast amounts of text they are trained on. These models use machine learning algorithms to predict what comes next in a sequence of words, sentences, or paragraphs based on the patterns they've learned. They are generative because they can generate text that is not explicitly present in their training data, hence providing new combinations of words and phrases.
+        </p>
+
+        <p>
+            However, due to their probabilistic nature, these models can sometimes generate outputs that are factually incorrect or inconsistent with the input provided. This phenomenon is often referred to as <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)">'hallucination'</a>. Hallucination occurs when the model makes statements that seem plausible, based on its training, but are not grounded in the facts given or in reality. This typically happens because the model lacks a deep understanding of the world, and instead relies on patterns in the data it has seen, which can sometimes lead to generation of content that is incorrect or nonsensical. Large language models, unlike continuously updating search engines, are like historical snapshots of the data they were trained on. Their understanding of the world, language, and information is confined to the period before their 'knowledge cutoff,' and they do not possess the capability to learn or incorporate new information post-training. In this way, they are 'frozen in time.'"
+        </p>
+
+        <h1>Retrieval Augmented Generation</h1>
+
+        <p>
+            In order to overcome this shortcomings we need a solution. Expensive and complex solutions like pre-training elements exist, but a new simple approach with relatively low overhead is Retrieval Augmented Generation. Where instead of using LLMs to access thier internal knowledge, you use the LLM as a natural language interface an existing knowledge base of information. Put simply, the user question is matched against a smaller set of documents likely to contain the answer. The LLM is then asked to provide an answer using <strong>only</strong> on the matching documents. The approach reduces the likelyhood of false answers. See the bulleted list below outlining the process and a diagram containing the same information. 
+        </p>
+
+  
+        <img id="how-image" src="static\images\Horizontal-How.png" alt="The process is 4 steps. User asks an AODA question. The question is matched against relevant documents. The AI agent answers based only on those matching documents. Answer is provided to user.">
+
+    </section>
+
+<script src="/static/about-how.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@ from flask import Flask,render_template, request, jsonify, session
 from getAssistant import getAssistantResponse
 from getContext import getContext
 from flask_session import Session
-from resources import matching_resources
+from resources import matchingResources
 
 app = Flask(__name__,
             template_folder="templates", 
@@ -28,7 +28,7 @@ def chatbot():
     user_input = request.json.get('message')
 
     # Get matching resources
-    resources = matching_resources(user_input)
+    resources = matchingResources(user_input)
 
     # Get context
     context = getContext(user_input)
@@ -65,6 +65,18 @@ def chatbot():
     session['messages']
     return jsonify(response=response, messages=session['messages'], sources=sources, resources=resources)
 
+
+@app.route('/about.html')
+def about():
+    return render_template('about.html')
+
+@app.route('/index.html')
+def home():
+    return render_template('index.html')
+
+@app.route('/how-this-works.html')
+def how_page():
+    return render_template('how.html')
 
 if __name__ == '__main__':
      app.jinja_env.auto_reload = True

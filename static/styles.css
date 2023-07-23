@@ -10,7 +10,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&display=swap');
 
-
 *{
     margin: 0;
     padding:0; 
@@ -44,11 +43,16 @@ nav{
     padding-top: 10px;
 }
 
+.nav-menu{
+  width: inherit;
+}
+
 ul{
     display:flex;
     flex-direction: row;
     list-style: none; 
     gap: 1rem; 
+    justify-content: end;
 
 }
 
@@ -56,7 +60,7 @@ nav ul li {
     transition: 0.3s linear;
     border-top: 1px solid white;
     padding-top: 10px;
-    width: 100%;
+    min-width: fit-content;
 }
 
 nav  ul  li:hover{
@@ -111,6 +115,8 @@ nav  ul  li  a{
     color:white; 
     
 }
+
+
 
 /*********************************************
 *                Nav - Hamburger Menu        *
@@ -530,7 +536,9 @@ nav button{
 **********************************************/
 
 .resource-container{
-  width: 40%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
   height: 70vh; 
   display: flex;
   flex-direction: column;
@@ -635,6 +643,7 @@ tr:nth-child(odd) {
 .carousel__nav{
   display: flex;
   gap: 1rem; 
+  justify-content: center;
 }
 
 .cards{
@@ -716,10 +725,53 @@ tr:nth-child(odd) {
   text-decoration: none;
 }
 
-/**MEDIA REQUESTS**/
+/*********************************************
+*      How This Works Page & About Page      *
+**********************************************/
+
+#section-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:1rem; 
+  width: 50%;
+  background-color: white;
+  color: #313131;
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#section-container h1{
+  font-family: 'Lato', sans-serif;
+  font-size: 2.0rem;
+  text-align: center; 
+}
+
+#section-container p{
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+  max-width: 60ch;
+  font-size: 1.0rem; 
+  text-indent: 2.5rem;
+}
+
+#section-container ol{
+  font-family: 'Lato', sans-serif;
+  margin: auto;
+  list-style: decimal;
+}
+
+#section-container ol li{
+  padding-bottom: .25rem;
+  
+}
+
 
 /*********************************************
-*                MEDIA REQUESTS         *
+*                MEDIA REQUESTS              *
 **********************************************/
 
 @media (max-width: 850px) {
@@ -839,10 +891,6 @@ tr:nth-child(odd) {
   margin-top: 1rem;
 }
 
-nav p, div {
-  margin: auto;
-}
-
 nav div {
   margin-top: .5rem;
 }
@@ -851,9 +899,9 @@ nav .logo-menu-wrapper div {
   margin-top: 0;
 }
 
-
-
-/**CAROUSEL**/
+/*********************************************
+*            Carousel Media                  *
+**********************************************/
 .cards-item img{
   min-height: 100px;
   object-fit: scale-down;
@@ -863,8 +911,50 @@ nav .logo-menu-wrapper div {
   justify-content: center;
 }
 
-}
-
 .resource-container{
   height: auto;
 }
+
+/*********************************************
+*   How This Works Page & About Page Media   *
+**********************************************/
+
+#section-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:1rem; 
+  width: 90%;
+  background-color: white;
+  color: #313131;
+  margin-left:auto; 
+  margin-right: auto;
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#section-container h1{
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5rem;
+  text-align: left; 
+}
+
+#section-container p{
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+  max-width: 60ch;
+  font-size: 1.0rem; 
+  text-indent: 1.5rem;
+  
+}
+
+#section-container img{
+  width: 80%;
+}
+
+}
+
+
+
+

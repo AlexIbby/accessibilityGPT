@@ -23,6 +23,9 @@ index = pinecone.Index(index_name)
 
 
 def getContext(user_input):
+    """
+    The getContext function retrives the closest matching vectors in the Pinecone database based on simlarity search. The purpose is to provide leading context to the chatbot as a part of the retrieval augmented generation approach. Doing so increases the "truthiness" of the results. You can learn more about retrieval augmnented generation in this project's About page or here at : https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.html. The number of returned results is dependent on the k number, which is important for determining how much context is there both in terms of content detail and the number of potential tokens the response takes.
+    """
     embedding_model = "text-embedding-ada-002"
     embed_query = openai.Embedding.create(
             input=user_input,
@@ -49,12 +52,15 @@ def getContext(user_input):
     for i, context in enumerate(contexts,1):
         ordered_context += f"Context {i}: " + context + str(metadata) + "\n\n"
 
-    sources = get_sources(ordered_context)
+    sources = getSources(ordered_context)
 
     return [ordered_context, sources]
 
 
-def get_sources(text):
+def getSources(text):
+    """
+    The getSources function is a helper function designed to clean up the data. Some of the sources ingested had different ways of referring to links and context. Standardizing these sources makes it easier to provide clean tables in the front end sources table. 
+    """
     # Fixes for text formatting errors in sources
     text = text.replace('\\n', '')
     text = re.sub(r'(Page)source', r'\1 Source', text, flags=re.IGNORECASE)
