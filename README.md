@@ -1,4 +1,4 @@
-# AODA Chatbot: Information on Accessibility for Ontarians with Disabilities Act (AODA) 📖🦻👨‍🦼
+# AccessibilityGPT - An AODA Chatbot providing Information on Accessibility for Ontarians with Disabilities Act (AODA) 📖
 
 This project is a chatbot designed to provide answers related to the Accessibility for Ontarians with Disabilities Act (AODA) and its regulation, the Integrated Accessibility Standards Regulation (IASR). The chatbot utilizes the powerful mechanism of retrieval augmented generation (RAG) to provide more reliable and accurate responses. 🎯💬
 
@@ -21,9 +21,9 @@ https://accessibilitygpt.up.railway.app/
 - OpenAI's GPT-3.5 API for the language learning model 🧠
 - LangChain, an open-source framework for developing applications powered by language models 🔗
 
-## Why Use AODA Chatbot? 🤔
+## Why Use an AODA Chatbot? 🤔
 
-Our chatbot aims to provide easy and accurate information about the Accessibility for Ontarians with Disabilities Act (AODA). This can help ensure more people understand the act and its regulations, leading to a more inclusive society. 🌍🤝
+The chatbot aims to provide easy and accurate information about the Accessibility for Ontarians with Disabilities Act (AODA). This can help ensure more people understand the act and its regulations, providing easy to understand and use reference. 🌍🤝
 
 ## Get Started 🚀
 
@@ -39,4 +39,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments 👏
 
-Big thanks to OpenAI and the creators of Pinecone and LangChain for making their amazing technologies available to us!
+LangChain is awesome!
