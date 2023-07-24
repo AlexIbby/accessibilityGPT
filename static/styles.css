@@ -624,6 +624,7 @@ tr:nth-child(odd) {
   align-items: center;
   max-width: 350px;
   margin-bottom: 20px;
+  min-height: 100%;
   
 }
 
