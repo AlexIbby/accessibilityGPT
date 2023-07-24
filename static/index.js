@@ -29,6 +29,8 @@ function sendUserQuery (){
         chatHistoryEl.appendChild(newElement)
         chatHistoryEl.appendChild(chatBubbles)
 
+        chatHistoryEl.scrollTop = chatHistoryEl.scrollHeight; 
+
         /* Trigger transition by accessing the opacity property */
         setTimeout(() => newElement.style.opacity = 1, 10);
 
@@ -43,6 +45,8 @@ function sendUserQuery (){
     })
     .then(response => response.json())
     .then(data => {
+
+        
         // Process the response from the Flask server
         console.log(data);
         
@@ -120,24 +124,31 @@ function sendUserQuery (){
             }else{
                 resourceMsg.innerHTML = "Good news! I found some related resources to your question, <a href='#reading-heading' aria-label='Scroll down to see related resources'> scroll down to see them";
             }
+
+
             let aiResourceResponse = document.createElement("div")
             aiResourceResponse.classList.add("ai-message")
             
             aiResourceResponse.appendChild(resourceMsg)
             chatHistoryEl.appendChild(aiResourceResponse)
 
+            //Scroll bottom of Chat
+            chatHistoryEl.scrollTop = chatHistoryEl.scrollHeight; 
+
+        
+        const cardsEl = document.querySelector('.cards');
+        cardsEl.innerHTML = ""
         resources.forEach(item => {
-
-            
-
 
             //Remove Place Holder Resource Message
 
-            resourcePlaceholder.remove()
+            if(document.contains(resourcePlaceholder)){
+                resourcePlaceholder.remove();
+             }
             
             //Begin Adding Cards
 
-            const cardsEl = document.querySelector('.cards');
+            
 
             //Create individual resource
             let resource = document.createElement("div")
@@ -186,9 +197,14 @@ function sendUserQuery (){
         })}
 
         resourceCount = 1
+        const carouselNav = document.querySelector('.carousel__nav');
+        carouselNav.innerHTML = ""
+
         resources.forEach(item =>{
 
-            const carouselNav = document.querySelector('.carousel__nav');
+            
+
+            
 
             let navLink = document.createElement("a")
 
@@ -205,27 +221,21 @@ function sendUserQuery (){
         })
 
         if (totalResources > 0){
-
+            // Check if resources found already exists
+            let existingResources = document.querySelector('.foundResources');
+        
+            // If it exists, remove it
+            if (existingResources) {
+                existingResources.remove();
+            }
+        
             let foundResources = document.createElement("p")
             foundResources.textContent = `${totalResources} matching resource(s) found!`
             foundResources.setAttribute("class", "foundResources")
             const carouselSection = document.querySelector('.carousel');
             carouselSection.appendChild(foundResources)
-
         }
         
-
-
-
-
-
-
-
-
-
-
-
-
 
         //Scroll bottom of Chat
         chatHistoryEl.scrollTop = chatHistoryEl.scrollHeight; 
