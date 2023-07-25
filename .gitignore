@@ -6,6 +6,7 @@
 ##Not needed for users
 documents/
 ingestion/
+flask_session/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
