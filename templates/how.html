@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/styles.css">
-    <title>AccessibilityGPT</title>
+    <title>AODA GPT</title>
 </head>
 <body>
     <div class="nav-wrapper">
@@ -13,7 +13,7 @@
             <div class="logo-menu-wrapper">
                 <button class="logo">
                     <a href="index.html" aria-label="Return to homepage of AODA chatbot">
-                        AccessibilityGPT
+                        AODA-GPT
                     </a>
                 </botton>
                 <button class="hamburger-menu" aria-label="Menu" aria-expanded="false">
@@ -49,17 +49,17 @@
         <h1>Understanding Generative AI</h1>
 
         <p>
-            Generative large language models (LLMs) like GPT-4 work by learning statistical patterns in the vast amounts of text they are trained on. These models use machine learning algorithms to predict what comes next in a sequence of words, sentences, or paragraphs based on the patterns they've learned. They are generative because they can generate text that is not explicitly present in their training data, hence providing new combinations of words and phrases.
+            Generative large language models (LLMs) like GPT-4 work by learning statistical patterns in the vast amounts of text they are trained on. These models use machine learning algorithms to predict what (most proable token) comes next in a sequence of words, sentences, or paragraphs based on the patterns they've learned. Through this process, LLMs generate convincing, human sounding text. 
         </p>
 
         <p>
-            However, due to their probabilistic nature, these models can sometimes generate outputs that are factually incorrect or inconsistent with the input provided. This phenomenon is often referred to as <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)">'hallucination'</a>. Hallucination occurs when the model makes statements that seem plausible, based on its training, but are not grounded in the facts given or in reality. "
+            However, due to their probabilistic nature, these models can sometimes generate outputs that are factually incorrect or inconsistent with the input provided. This phenomenon is often referred to as <a href="https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)">'hallucination'</a>. Hallucination occurs when the model makes statements that seem plausible, based on its training, but are not grounded in the facts given or in reality. 
         </p>
 
         <h1>Retrieval Augmented Generation</h1>
 
         <p>
-            In order to overcome these shortcomings there a few solutions. Expensive and complex solutions like pre-training elements exist, but a new simple approach with relatively low overhead is Retrieval Augmented Generation (RAG). Instead of using LLMs to access thier internal knowledge, you use the LLM as a natural language interface an existing knowledge base of information. Put simply, the user question is matched against a smaller set of documents likely to contain the answer. The LLM is then asked to provide an answer using <strong>only</strong> on the matching documents. The approach reduces the likelyhood of false answers. See the bulleted list below and a diagram. 
+            In order to overcome these shortcomings there a few solutions. An approach with relatively low overhead is Retrieval Augmented Generation (RAG). Instead of using LLMs to access thier internal knowledge, you use the LLM as a natural language interface an existing knowledge base of information. Put simply, the user question is matched against a smaller set of documents likely to contain the answer. The LLM is then asked to provide an answer using <strong>only</strong> on the matching documents. The approach reduces the likelyhood of false answers. See the bulleted list below and a diagram. 
         </p>
 
   

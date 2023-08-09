@@ -1,4 +1,4 @@
-# AccessibilityGPT - An AODA Chatbot providing Information on Accessibility for Ontarians with Disabilities Act (AODA) 📖
+# AODAGPT - An AODA Chatbot providing Information on Accessibility for Ontarians with Disabilities Act (AODA) 📖
 
 This project is a chatbot designed to provide answers related to the Accessibility for Ontarians with Disabilities Act (AODA) and its regulation, the Integrated Accessibility Standards Regulation (IASR). The chatbot utilizes retrieval augmented generation (RAG) to provide more reliable and accurate responses. 🎯💬
 
@@ -6,13 +6,13 @@ This project is a chatbot designed to provide answers related to the Accessibili
 
 The process begins with a user's query. 🗣️ This query is then matched against a set of relevant documents within a Pinecone vector database. Pinecone is a  popular vector database that allows us to retrieve relevant documents based on the similarity of vectors. 📚
 
-Following this, an OpenAI API call is made to GPT-3.5, which serves as the language learning model (LLM) for the system. This LLM generates an answer to the user's query based solely on the matched documents from the database. 🤖💡
+Following this, an OpenAI API call is made to GPT-3.5, which serves as the language learning model (LLM) for the system. This LLM generates an answer to the user's query based solely on the matched documents from the database. 🤖💡 The chatbot will be updated to GPT-4 once developer api costs reduce. 
 
 This approach significantly increases the "truthiness" of responses by restricting the responses to only the information found within the matched documents, effectively reducing hallucination. 🎉
 
 ## Live Demo
 
-https://accessibilitygpt.up.railway.app/
+https://aodagpt.netlify.app/
 
 ## Tech Stack 🛠️
 
@@ -30,6 +30,7 @@ The chatbot aims to provide easy and accurate information about the Accessibilit
 - Clone the repo using `git clone <repo_url>`
 - Install dependencies using `pip install -r requirements.txt`
 - Start the Flask app with `python app.py`
+- Note you will need your own OpenAI api-key
 
 Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us. 
 
@@ -39,4 +40,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments 👏
 
-LangChain is awesome!
+LangChain, PromptEgineering YT channel. 

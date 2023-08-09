@@ -743,6 +743,7 @@ tr:nth-child(odd) {
   margin-top: 20px;
   padding: 10px;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 #section-container h1{
