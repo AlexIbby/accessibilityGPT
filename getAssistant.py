@@ -15,7 +15,7 @@ def getAssistantResponse(session_messages):
     The getAssistantResponse function makes to calls to the OpenAI API. The goal is to first answer the question based on the context. The second then provides the response in HMTL. The reason for doing so is cleaning up the AI response without needing to implement a complex NLP approach to ensure sentences and paragraphs display appropriately. As of July 2023, the OpenAI GPT 3.5 turbo models all need these instructions to be split out. GPT4 is able to follow the instructions and answer and provide the response in HTML, but the cost is high. 
     """
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-16k",
+        model="gpt-4o",
         messages= session_messages
     )
 

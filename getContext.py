@@ -4,58 +4,59 @@ import pinecone
 import re 
 import os 
 
-
-#API Keys
+# API Keys
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
-PINECONE_API_ENV = 'asia-southeast1-gcp'
-
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# Pinecone Code
 
-# Initialize pinecone
-pinecone.init(
-    api_key=PINECONE_API_KEY,  # find at app.pinecone.io
-    environment=PINECONE_API_ENV
-)
+# Import the updated Pinecone client
+from pinecone import Pinecone
+
+# Initialize Pinecone
+pc = Pinecone(api_key=PINECONE_API_KEY)
+
 index_name = "access-vec"
 
-index = pinecone.Index(index_name)
-
+index = pc.Index(index_name)
 
 def getContext(user_input):
     """
-    The getContext function retrives the closest matching vectors in the Pinecone database based on simlarity search. The purpose is to provide leading context to the chatbot as a part of the retrieval augmented generation approach. Doing so increases the "truthiness" of the results. You can learn more about retrieval augmnented generation in this project's About page or here at : https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.html. The number of returned results is dependent on the k number, which is important for determining how much context is there both in terms of content detail and the number of potential tokens the response takes.
+    The getContext function retrieves the closest matching vectors in the Pinecone database based on similarity search. The purpose is to provide leading context to the chatbot as a part of the retrieval augmented generation approach. Doing so increases the "truthiness" of the results. You can learn more about retrieval augmented generation in this project's About page or here at : https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-customize-rag.html. The number of returned results is dependent on the k number, which is important for determining how much context is there both in terms of content detail and the number of potential tokens the response takes.
     """
     embedding_model = "text-embedding-ada-002"
     embed_query = openai.Embedding.create(
-            input=user_input,
-            engine=embedding_model, 
-            )
+        input=user_input,
+        engine=embedding_model, 
+    )
 
-    #retrieve from Pinecone
+    # Retrieve from Pinecone
     query_embeds = embed_query['data'][0]['embedding']
 
-    # get relevent contexts, inluding question
-    response = index.query(query_embeds, top_k=3, include_metadata=True, namespace="accessgpt2023-06-21")
-    reponse = response.to_dict()
+    # Get relevant contexts, including question
+    response = index.query(
+        vector=query_embeds, 
+        top_k=3, 
+        include_metadata=True, 
+        namespace="accessgpt2023-06-21"
+    )
+    
+    response = response.to_dict()  # Typo fix: reponse -> response
     contexts = []
     matches = response.get('matches', [])
     for match in matches:
         metadata = match.get('metadata', {})
         text = metadata.get('text', '')
         contexts.append(text)
-    
 
-
-    #joining context together in an orderly fashion
+    # Joining context together in an orderly fashion
     ordered_context = ""
-    for i, context in enumerate(contexts,1):
+    for i, context in enumerate(contexts, 1):
         ordered_context += f"Context {i}: " + context + str(metadata) + "\n\n"
 
     sources = getSources(ordered_context)
 
     return [ordered_context, sources]
-
 
 def getSources(text):
     """
@@ -82,4 +83,4 @@ def getSources(text):
 
     return matches
 
-#Previous full  namespace accessgpt2023-06-18
+# Previous full namespace accessgpt2023-06-18
