@@ -16,7 +16,7 @@ from pinecone import Pinecone
 # Initialize Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
-index_name = "access-vec"
+index_name = "aodaindex"
 
 index = pc.Index(index_name)
 
